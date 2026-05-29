@@ -63,6 +63,8 @@ Leitura feita: o aluno tem perfil tecnico forte em Python + eletronica. O melhor
 - Evitar pular etapas.
 - Manter foco em entendimento, nao apenas copiar codigo.
 - Quando houver confusao, explicar com nomes diferentes e exemplos simples.
+- Propor uma necessidade real do sistema e esperar o aluno tentar resolver antes de mostrar a solucao.
+- Nao avancar para conteudo novo enquanto o aluno disser que ainda nao esta seguro.
 
 ## Conteudos ja estudados
 
@@ -268,9 +270,66 @@ novo_equipamento
 equipamentos
 ```
 
+### Fixacao atual
+
+O aluno pediu para fixar bastante o que ja aprendeu antes de passar para frente.
+
+Conceitos que precisam continuar sendo reforcados:
+
+- dicionario como pares de chave e valor;
+- lista como sequencia de itens;
+- diferenca entre `cadastro` e `cadastros`;
+- `append()` adicionando um item na lista;
+- `return` devolvendo valor para quem chamou a funcao;
+- funcao recebendo um dicionario;
+- funcao recebendo uma lista;
+- `for` percorrendo uma lista;
+- acesso a uma chave com `cadastro["cliente"]`.
+
+Exercicios mentais ja respondidos corretamente:
+
+```python
+def criar_nome():
+    nome = "Mauricio"
+    return nome
+
+resultado = criar_nome()
+print(resultado)
+```
+
+O aluno entendeu que a funcao retorna `"Mauricio"` e que `resultado` armazena esse valor.
+
+```python
+def criar_cadastro():
+    cadastro = {
+        "cliente": "Ana",
+        "tipo": "Notebook"
+    }
+
+    return cadastro
+
+novo_cadastro = criar_cadastro()
+print(novo_cadastro["cliente"])
+```
+
+O aluno entendeu que aparece `Ana`, porque `"cliente"` e a chave do dicionario.
+
+```python
+cadastros = [
+    {"cliente": "Ana", "tipo": "Notebook"},
+    {"cliente": "Joao", "tipo": "TV"},
+    {"cliente": "Maria", "tipo": "Celular"}
+]
+
+for cadastro in cadastros:
+    print(cadastro["cliente"])
+```
+
+O aluno entendeu que aparecem `Ana`, `Joao`, `Maria`, que o `for` roda 3 vezes, e foi ajustado que `cadastro` representa um dicionario inteiro em cada volta.
+
 ## Ponto exato para continuar
 
-Continuar a partir de funcoes, reforcando:
+Continuar em modo de fixacao, sem conteudo novo por enquanto, reforcando:
 
 - escopo de variaveis;
 - parametro;
@@ -282,27 +341,114 @@ Continuar a partir de funcoes, reforcando:
 - funcao que calcula;
 - funcao que valida.
 
-Exercicio atual recomendado:
+Metodo atual recomendado:
 
-Reescrever o programa de equipamentos usando:
+1. Fazer perguntas de compreensao.
+2. Propor uma necessidade pequena.
+3. Esperar o aluno implementar.
+4. Corrigir somente o necessario.
+5. Repetir ate o aluno demonstrar seguranca.
+
+Exercicio atual recomendado quando o aluno voltar:
+
+Continuar a revisao mental:
+
+```python
+def mostrar_cliente(cadastro):
+    print(cadastro["cliente"])
+
+
+cadastros = [
+    {"cliente": "Ana"},
+    {"cliente": "Joao"}
+]
+
+for cadastro in cadastros:
+    mostrar_cliente(cadastro)
+```
+
+Perguntar:
+
+```text
+1. Quantas vezes mostrar_cliente e chamada?
+2. O que ela recebe na primeira chamada?
+3. O que aparece no terminal?
+```
+
+Depois, se estiver seguro, voltar para a necessidade:
+
+```text
+Criar uma funcao que conta cadastros por marca.
+```
+
+Assinatura:
+
+```python
+def contar_por_marca(cadastros, marca_pesquisada):
+    ...
+```
+
+Antes disso, revisar o programa atual:
 
 ```python
 def cadastrar_equipamento():
-    ...
-    return dados_equipamento
-```
+    cliente = input("Nome do cliente: ")
+    tipo = input("Tipo do equipamento: ")
+    marca = input("Marca do equipamento: ")
+    modelo = input("Modelo do equipamento: ")
+    defeito = input("Defeito do equipamento: ")
 
-```python
-def listar_equipamentos(equipamentos):
-    ...
-```
+    cadastro = {
+        "cliente": cliente,
+        "tipo": tipo,
+        "marca": marca,
+        "modelo": modelo,
+        "defeito": defeito
+    }
 
-Com estes nomes:
+    return cadastro
 
-```python
-dados_equipamento
-novo_equipamento
-equipamentos
+
+def formatar_dados(cadastro):
+    cliente = cadastro["cliente"]
+    tipo = cadastro["tipo"]
+    marca = cadastro["marca"]
+    modelo = cadastro["modelo"]
+    defeito = cadastro["defeito"]
+
+    texto = f"Cliente: {cliente} | Equipamento: {tipo} {marca} {modelo} | Defeito: {defeito}"
+
+    return texto
+
+
+def listar_equipamentos(cadastros):
+    print("\n=== Equipamentos cadastrados ===")
+
+    for cadastro in cadastros:
+        texto = formatar_dados(cadastro)
+        print(texto)
+
+
+def contar_cadastros(cadastros):
+    total = len(cadastros)
+    return total
+
+
+cadastros = []
+
+while True:
+    novo_cadastro = cadastrar_equipamento()
+    cadastros.append(novo_cadastro)
+
+    opcao = input("Cadastrar outro equipamento? (s/n): ").strip().lower()
+
+    if opcao != "s":
+        break
+
+listar_equipamentos(cadastros)
+
+total_cadastros = contar_cadastros(cadastros)
+print(f"\nTotal de equipamentos cadastrados: {total_cadastros}")
 ```
 
 ## Arquivos criados no workspace
@@ -314,6 +460,7 @@ equipamentos
 - `aulas/aula02_orcamento.py`
 - `aulas/aula03_orcamentos_com_lista.py`
 - `aulas/aula04_equipamentos_funcoes.py`
+- `aulas/aula05_fixacao_funcoes.py`
 
 ## Proxima resposta esperada do mentor
 

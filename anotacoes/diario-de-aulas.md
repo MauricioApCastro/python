@@ -160,3 +160,79 @@ equipamentos = []
 novo_equipamento = cadastrar_equipamento()
 equipamentos.append(novo_equipamento)
 ```
+
+## Aula 09 - Fixacao de funcoes, listas e dicionarios
+
+Decisao tomada: antes de avancar para conteudos novos, vamos fixar bastante o que ja foi estudado.
+
+Conceitos em revisao:
+
+- dicionario guarda dados em pares de chave e valor;
+- lista guarda varios itens em sequencia;
+- `.append()` adiciona um item ao final de uma lista;
+- `return` devolve um valor para quem chamou a funcao;
+- `cadastro` representa um dicionario;
+- `cadastros` representa uma lista com varios dicionarios;
+- `for cadastro in cadastros` percorre cada dicionario da lista.
+
+Respostas importantes consolidadas:
+
+```text
+cadastro = um registro individual
+cadastros = lista com varios registros
+```
+
+```python
+novo_cadastro = cadastrar_equipamento()
+```
+
+Significa:
+
+```text
+chama a funcao, recebe o valor retornado e guarda em novo_cadastro
+```
+
+```python
+cadastros.append(novo_cadastro)
+```
+
+Significa:
+
+```text
+adiciona novo_cadastro dentro da lista cadastros
+```
+
+```python
+for cadastro in cadastros:
+    texto = formatar_dados(cadastro)
+    print(texto)
+```
+
+Significa:
+
+```text
+para cada dicionario da lista, formata os dados e imprime o texto
+```
+
+## Metodo de fixacao
+
+O treino agora deve propor uma necessidade pequena por vez e esperar o aluno resolver.
+
+Exemplos de necessidades:
+
+- mostrar o total de cadastros;
+- contar cadastros por marca;
+- buscar cadastros por cliente;
+- filtrar cadastros por tipo;
+- listar somente equipamentos de uma marca;
+- revisar o que cada linha faz antes de criar novas funcoes.
+
+Evitar avancar para assunto novo enquanto houver inseguranca em:
+
+- funcao;
+- parametro;
+- `return`;
+- lista;
+- dicionario;
+- `append`;
+- `for`.
