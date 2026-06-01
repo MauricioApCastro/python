@@ -23,6 +23,7 @@ Revisar desde o inicio, com exercicios praticos em Python, ate chegar em backend
 - Listas e dicionarios
 - Introducao a funcoes e `return`
 - Fixacao de lista, dicionario, funcao, parametro, `return`, `append` e `for`
+- Inicio do menu do sistema com opcoes de cadastro, listagem, total e sair
 
 ## Metodo atual
 
@@ -37,3 +38,14 @@ O ciclo de estudo combinado e:
 5. So avancar quando o conceito estiver seguro.
 
 Ponto atual: reforco de funcoes, listas e dicionarios usando cadastros de equipamentos.
+
+## Ponto de parada atual
+
+O sistema com menu ja tem estas opcoes funcionando:
+
+- `1` - Cadastrar equipamento
+- `2` - Listar todos
+- `5` - Mostrar total de cadastros
+- `0` - Sair
+
+Proxima etapa: implementar a opcao `3 - Buscar por marca`, reforcando a diferenca entre funcao que retorna numero e funcao que imprime dados.

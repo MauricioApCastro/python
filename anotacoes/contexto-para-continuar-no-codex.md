@@ -327,9 +327,65 @@ for cadastro in cadastros:
 
 O aluno entendeu que aparecem `Ana`, `Joao`, `Maria`, que o `for` roda 3 vezes, e foi ajustado que `cadastro` representa um dicionario inteiro em cada volta.
 
+### Avanco mais recente
+
+O aluno consolidou melhor:
+
+- a funcao recebe entradas;
+- a variavel fora recebe o retorno;
+- se uma funcao retorna valor e esse retorno nao e guardado, o valor se perde;
+- `listar_*` imprime dados;
+- `contar_*` retorna numero.
+
+Foram criadas/revisadas estas funcoes:
+
+```text
+contar_por_marca -> retorna numero
+listar_por_marca -> imprime dados
+listar_por_cliente -> imprime dados
+contar_por_cliente -> retorna numero
+```
+
+Foi iniciado o menu do sistema.
+
+Opcoes ja implementadas no menu:
+
+```text
+1 - Cadastrar equipamento
+2 - Listar todos
+5 - Mostrar total de cadastros
+0 - Sair
+```
+
+Trecho atual do menu:
+
+```python
+while True:
+    mostrar_menu()
+    opcao = input("Escolha uma opcao: ").strip()
+
+    if opcao == "1":
+        novo_cadastro = cadastrar_equipamento()
+        cadastros.append(novo_cadastro)
+        print("Cadastro realizado com sucesso.")
+
+    elif opcao == "2":
+        listar_equipamentos(cadastros)
+
+    elif opcao == "5":
+        total_cadastros = contar_cadastros(cadastros)
+        print(f"Total de equipamentos cadastrados: {total_cadastros}")
+
+    elif opcao == "0":
+        break
+
+    else:
+        print("Opcao invalida.")
+```
+
 ## Ponto exato para continuar
 
-Continuar em modo de fixacao, sem conteudo novo por enquanto, reforcando:
+Continuar em modo de fixacao, reforcando:
 
 - escopo de variaveis;
 - parametro;
@@ -350,6 +406,48 @@ Metodo atual recomendado:
 5. Repetir ate o aluno demonstrar seguranca.
 
 Exercicio atual recomendado quando o aluno voltar:
+
+Implementar a opcao `3 - Buscar por marca` no menu.
+
+Antes de pedir codigo, perguntar:
+
+```text
+Na opcao 3, quais funcoes retornam numero e quais imprimem dados?
+```
+
+Resposta esperada:
+
+```text
+contar_por_marca retorna numero.
+listar_por_marca imprime dados.
+```
+
+Codigo a implementar:
+
+```python
+elif opcao == "3":
+    marca_pesquisada = input("Digite a marca para buscar/contar: ").strip().lower()
+
+    total_marcas = contar_por_marca(cadastros, marca_pesquisada)
+    print(f"Total de equipamentos da marca {marca_pesquisada}: {total_marcas}")
+
+    listar_por_marca(cadastros, marca_pesquisada)
+```
+
+Se houver inseguranca, voltar a revisar:
+
+```python
+total_marcas = contar_por_marca(cadastros, marca_pesquisada)
+```
+
+Explicar que:
+
+```text
+a funcao recebe cadastros e marca_pesquisada;
+total_marcas recebe o retorno da funcao.
+```
+
+Exercicio mental anterior, se precisar:
 
 Continuar a revisao mental:
 
@@ -461,6 +559,7 @@ print(f"\nTotal de equipamentos cadastrados: {total_cadastros}")
 - `aulas/aula03_orcamentos_com_lista.py`
 - `aulas/aula04_equipamentos_funcoes.py`
 - `aulas/aula05_fixacao_funcoes.py`
+- `aulas/aula06_menu_parcial.py`
 
 ## Proxima resposta esperada do mentor
 

@@ -236,3 +236,71 @@ Evitar avancar para assunto novo enquanto houver inseguranca em:
 - dicionario;
 - `append`;
 - `for`.
+
+## Aula 10 - Inicio do menu do sistema
+
+Necessidade trabalhada:
+
+```text
+Em vez de o programa executar tudo em sequencia, o usuario deve escolher o que quer fazer.
+```
+
+Menu planejado:
+
+```text
+=== Sistema de Equipamentos ===
+1 - Cadastrar equipamento
+2 - Listar todos
+3 - Buscar por marca
+4 - Buscar por cliente
+5 - Mostrar total de cadastros
+0 - Sair
+```
+
+Conceitos reforcados:
+
+- uma funcao pode apenas imprimir, sem `return`;
+- `mostrar_menu()` apenas exibe as opcoes;
+- o `input("Escolha uma opcao")` precisa ficar dentro do `while`, porque o menu deve repetir;
+- quando uma funcao retorna valor e esse retorno nao e guardado, ele se perde;
+- funcoes que imprimem podem ser apenas chamadas;
+- funcoes que retornam numero precisam ter o retorno guardado em variavel para depois imprimir.
+
+Trecho atual do `while`:
+
+```python
+while True:
+    mostrar_menu()
+    opcao = input("Escolha uma opcao: ").strip()
+
+    if opcao == "1":
+        novo_cadastro = cadastrar_equipamento()
+        cadastros.append(novo_cadastro)
+        print("Cadastro realizado com sucesso.")
+
+    elif opcao == "2":
+        listar_equipamentos(cadastros)
+
+    elif opcao == "5":
+        total_cadastros = contar_cadastros(cadastros)
+        print(f"Total de equipamentos cadastrados: {total_cadastros}")
+
+    elif opcao == "0":
+        break
+
+    else:
+        print("Opcao invalida.")
+```
+
+Ponto de parada:
+
+```text
+Proxima aula: implementar a opcao 3 - Buscar por marca.
+```
+
+Antes de implementar, revisar:
+
+```text
+contar_por_marca -> retorna numero
+listar_por_marca -> imprime dados
+```
