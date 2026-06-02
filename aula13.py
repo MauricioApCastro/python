@@ -1,6 +1,3 @@
-
-equipamentos = []
-
 def cadastrar_equipamento():
     cliente = input("Nome do cliente: ")
     tipo = input("Tipo do equipamento: ")
@@ -8,57 +5,44 @@ def cadastrar_equipamento():
     modelo = input("Modelo do equipamento: ")
     defeito = input("Defeito do equipamento: ")
 
-    equipamento = {
+    dados_equipamento = {
         "cliente": cliente,
         "tipo": tipo,
         "marca": marca,
         "modelo": modelo,
         "defeito": defeito
     }
-    return equipamento
+
+    return dados_equipamento
 
 
-
-
-def listar_equipamentos():
+def listar_equipamentos(equipamentos):
     print("\n=== Equipamentos cadastrados ===")
 
     for equipamento in equipamentos:
-        print(f"cliente: {equipamento['cliente']} | Equipamento: {equipamento['equipamento']} | Defeito: {equipamento['defeito']} ")
+        print(
+            f"Cliente: {equipamento['cliente']} | "
+            f"Equipamento: {equipamento['tipo']} {equipamento['marca']} {equipamento['modelo']} | "
+            f"Defeito: {equipamento['defeito']}"
+        )
 
 
+def formatar_equipamento(equipamento):
+    return (
+        f"Cliente: {equipamento['cliente']} | "
+        f"Equipamento: {equipamento['tipo']} {equipamento['marca']} {equipamento['modelo']} | "
+        f"Defeito: {equipamento['defeito']}"
+    )
 
-    
+equipamentos = []
+
 while True:
-    equipamento = cadastrar_equipamento()
-    equipamento.append(equipamento)
+    novo_equipamento = cadastrar_equipamento()
+    equipamentos.append(novo_equipamento)
 
     opcao = input("Cadastrar outro equipamento? (s/n): ").strip().lower()
 
     if opcao != "s":
         break
 
-listar_equipamentos(equipamento)
-
-    
-    
-
-   
-
-
-
-
-
-    
-
-
-    
-    
-
-
-
-    
-    
-    
-
-
+listar_equipamentos(equipamentos)
