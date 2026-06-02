@@ -24,6 +24,7 @@ Revisar desde o inicio, com exercicios praticos em Python, ate chegar em backend
 - Introducao a funcoes e `return`
 - Fixacao de lista, dicionario, funcao, parametro, `return`, `append` e `for`
 - Inicio do menu do sistema com opcoes de cadastro, listagem, total e sair
+- CRUD completo em memoria com ID, editar, remover e validacoes basicas
 
 ## Metodo atual
 
@@ -37,7 +38,7 @@ O ciclo de estudo combinado e:
 4. O aluno responde exercicios mentais para confirmar entendimento.
 5. So avancar quando o conceito estiver seguro.
 
-Ponto atual: reforco de funcoes, listas e dicionarios usando cadastros de equipamentos.
+Ponto atual: CRUD completo em memoria usando cadastros de equipamentos.
 
 ## Ponto de parada atual
 
@@ -47,5 +48,9 @@ O sistema com menu ja tem estas opcoes funcionando:
 - `2` - Listar todos
 - `5` - Mostrar total de cadastros
 - `0` - Sair
+- `3` - Buscar por marca
+- `4` - Buscar por cliente
+- `6` - Editar cadastro
+- `7` - Remover cadastro
 
-Proxima etapa: implementar a opcao `3 - Buscar por marca`, reforcando a diferenca entre funcao que retorna numero e funcao que imprime dados.
+Proxima etapa sugerida: salvar os cadastros em arquivo JSON para nao perder os dados ao encerrar o programa.

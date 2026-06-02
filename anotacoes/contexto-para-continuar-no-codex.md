@@ -353,8 +353,50 @@ Opcoes ja implementadas no menu:
 ```text
 1 - Cadastrar equipamento
 2 - Listar todos
+3 - Buscar por marca
+4 - Buscar por cliente
 5 - Mostrar total de cadastros
+6 - Editar cadastro
+7 - Remover cadastro
 0 - Sair
+```
+
+### CRUD completo
+
+O aluno pediu para completar o CRUD e chegou a um programa completo em memoria.
+
+Foram adicionados:
+
+- `id` em cada cadastro;
+- `proximo_id`;
+- `editar_cadastro`;
+- `remover_cadastro`;
+- opcao `6 - Editar cadastro`;
+- opcao `7 - Remover cadastro`;
+- `try/except` em editar/remover para ID invalido;
+- `ler_campo_obrigatorio` para impedir campos vazios;
+- uso de `ler_campo_obrigatorio` no cadastro, edicao, busca por marca e busca por cliente.
+
+Conceito de `True` e `False` consolidado:
+
+```text
+editar_cadastro retorna True se editou, False se nao encontrou.
+remover_cadastro retorna True se removeu, False se nao encontrou.
+```
+
+O aluno entendeu:
+
+```text
+if True entra no if
+if False entra no else
+```
+
+Tambem entendeu:
+
+```text
+mensagem = texto da pergunta
+valor = resposta digitada pelo usuario
+return valor = devolve a resposta
 ```
 
 Trecho atual do menu:
@@ -407,44 +449,26 @@ Metodo atual recomendado:
 
 Exercicio atual recomendado quando o aluno voltar:
 
-Implementar a opcao `3 - Buscar por marca` no menu.
-
-Antes de pedir codigo, perguntar:
+Se o aluno quiser fixar, revisar o CRUD completo e perguntar:
 
 ```text
-Na opcao 3, quais funcoes retornam numero e quais imprimem dados?
+1. Qual funcao retorna dicionario?
+2. Qual funcao retorna texto?
+3. Quais funcoes retornam numero?
+4. Quais funcoes retornam True/False?
+5. Quais funcoes imprimem dados?
 ```
 
-Resposta esperada:
+Se o aluno quiser avancar, iniciar JSON:
 
 ```text
-contar_por_marca retorna numero.
-listar_por_marca imprime dados.
+Proxima necessidade: salvar cadastros em arquivo para nao perder ao fechar o programa.
 ```
 
-Codigo a implementar:
-
-```python
-elif opcao == "3":
-    marca_pesquisada = input("Digite a marca para buscar/contar: ").strip().lower()
-
-    total_marcas = contar_por_marca(cadastros, marca_pesquisada)
-    print(f"Total de equipamentos da marca {marca_pesquisada}: {total_marcas}")
-
-    listar_por_marca(cadastros, marca_pesquisada)
-```
-
-Se houver inseguranca, voltar a revisar:
-
-```python
-total_marcas = contar_por_marca(cadastros, marca_pesquisada)
-```
-
-Explicar que:
+Antes de codar JSON, explicar:
 
 ```text
-a funcao recebe cadastros e marca_pesquisada;
-total_marcas recebe o retorno da funcao.
+lista de dicionarios em Python -> JSON em arquivo
 ```
 
 Exercicio mental anterior, se precisar:
@@ -560,6 +584,7 @@ print(f"\nTotal de equipamentos cadastrados: {total_cadastros}")
 - `aulas/aula04_equipamentos_funcoes.py`
 - `aulas/aula05_fixacao_funcoes.py`
 - `aulas/aula06_menu_parcial.py`
+- `aulas/aula07_crud_completo.py`
 
 ## Proxima resposta esperada do mentor
 

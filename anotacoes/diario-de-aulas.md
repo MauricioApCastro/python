@@ -304,3 +304,86 @@ Antes de implementar, revisar:
 contar_por_marca -> retorna numero
 listar_por_marca -> imprime dados
 ```
+
+## Aula 11 - CRUD completo em memoria
+
+Necessidade trabalhada:
+
+```text
+Completar o CRUD do sistema de equipamentos.
+```
+
+Mapeamento:
+
+```text
+Create  -> cadastrar equipamento
+Read    -> listar, buscar e contar
+Update  -> editar cadastro
+Delete  -> remover cadastro
+```
+
+Melhorias implementadas:
+
+- cada cadastro passou a ter `id`;
+- `proximo_id` comeca em `1` e aumenta a cada cadastro;
+- `formatar_dados` passou a mostrar o ID;
+- opcao `6` edita cadastro por ID;
+- opcao `7` remove cadastro por ID;
+- `remover_cadastro` retorna `True` se removeu e `False` se nao encontrou;
+- `editar_cadastro` retorna `True` se editou e `False` se nao encontrou;
+- opcoes de editar/remover usam `try/except` para ID invalido;
+- foi criada `ler_campo_obrigatorio`;
+- cadastro, edicao, busca por marca e busca por cliente nao aceitam valor vazio.
+
+Conceitos reforcados:
+
+```text
+True  -> deu certo
+False -> nao deu certo
+```
+
+```text
+funcao recebe entradas
+funcao retorna uma saida
+variavel recebe o retorno
+print mostra mensagem ao usuario
+```
+
+Exemplo:
+
+```python
+removido = remover_cadastro(cadastros, id_pesquisado)
+
+if removido:
+    print("Cadastro removido com sucesso.")
+else:
+    print("Cadastro nao encontrado.")
+```
+
+Funcao de campo obrigatorio:
+
+```python
+def ler_campo_obrigatorio(mensagem):
+    while True:
+        valor = input(mensagem).strip()
+
+        if valor != "":
+            return valor
+
+        print("Campo obrigatorio. Digite um valor.")
+```
+
+Resumo:
+
+```text
+mensagem -> texto da pergunta
+valor -> resposta digitada pelo usuario
+return valor -> devolve a resposta
+```
+
+Ponto de parada:
+
+```text
+CRUD completo em memoria.
+Proxima etapa sugerida: salvar e carregar dados em JSON.
+```
