@@ -672,3 +672,162 @@ Mensagem curta para continuar:
 ```text
 Quero continuar a trajetoria otimizada. Leia o PROGRESSO_TREINO.md. O foco agora e terminar SQLite no CRUD de equipamentos. Retome devagar em buscar_por_cliente(cursor), reforcando WHERE, ?, tupla de um item e fetchall(). Depois avance para UPDATE por ID.
 ```
+
+## Atualizacao de 2026-06-03 - ponto atual
+
+### SQLite
+
+O CRUD em SQLite avancou ate a remocao por ID.
+
+Funcoes ja trabalhadas no arquivo `teste.py`:
+
+```text
+criar_tabela(cursor)
+cadastrar_equipamento(cursor)
+listar_equipamentos(cursor)
+buscar_por_marca(cursor)
+buscar_por_cliente(cursor)
+editar_por_id(cursor)
+remover_por_id(cursor)
+```
+
+Conceitos reforcados:
+
+```text
+connect() abre a conexao com o banco
+cursor e a ferramenta usada para executar SQL
+execute() executa o comando SQL
+commit() confirma alteracoes no banco
+fetchall() busca varios registros
+fetchone() busca um registro
+INSERT adiciona dados
+SELECT consulta dados
+UPDATE altera dados
+DELETE remove dados
+WHERE filtra os registros
+? recebe valores enviados por tupla
+(valor,) e uma tupla com um unico valor
+rowcount mostra quantas linhas foram afetadas
+```
+
+O aluno implementou a funcao:
+
+```python
+def remover_por_id(cursor):
+    try:
+        id_busca = int(input("Digite o ID para remover: "))
+    except ValueError:
+        print("ID invalido. Digite um numero.")
+        return
+
+    cursor.execute("""
+    DELETE FROM equipamentos
+    WHERE id = ?
+    """, (id_busca,))
+
+    if cursor.rowcount == 0:
+        print("Nenhum equipamento encontrado com esse ID.")
+    else:
+        print("Equipamento removido com sucesso.")
+```
+
+Entendimento fixado:
+
+```text
+DELETE com WHERE id = ? apaga somente o ID informado.
+Sem WHERE, o DELETE poderia apagar tudo.
+rowcount ajuda a saber se algo realmente foi removido.
+```
+
+### Mudanca de plano didatico
+
+O aluno percebeu que aprende melhor fazendo um sistema completo com contexto de produto, em vez de exercicios soltos.
+
+Novo formato escolhido:
+
+```text
+Construir primeiro um sistema de assistencia tecnica em memoria,
+usando lista, dicionarios, funcoes e menu.
+Depois refatorar para JSON.
+Depois migrar para SQLite.
+Depois transformar em API com FastAPI.
+```
+
+Sistema iniciado na pasta:
+
+```text
+estudo/
+```
+
+Arquivos iniciados:
+
+```text
+estudo/main.py
+estudo/menu.py
+estudo/ordens.py
+```
+
+Estado atual do sistema em memoria:
+
+```text
+menu criado
+cadastro de ordem criado
+lista ordens criada no main
+proximo_id iniciado em 1
+opcao 1 cadastra ordem
+opcao 2 deve listar ordens
+opcao 7 deve mostrar total de ordens
+opcao 0 encerra
+```
+
+Proximo passo tecnico recomendado:
+
+```text
+1. Completar formatar_ordem(ordem)
+2. Completar listar_ordens(ordens)
+3. Completar contar_ordens(ordens)
+4. Corrigir estudo/menu.py para nao chamar mostrar_menu() fora do main
+5. Testar cadastro, listagem e total em memoria
+```
+
+### Gmail Cleaner
+
+O projeto `gmail_cleaner` passou a ser tratado como produto real de portfolio.
+
+Repositorio:
+
+```text
+https://github.com/MauricioApCastro/gmail_cleaner
+```
+
+Posicionamento ajustado:
+
+```text
+Gmail Cleaner ajuda o usuario a descobrir quais remetentes mais consomem espaco no Gmail,
+mostrando um ranking do maior para o menor, permitindo revisar os e-mails
+e mover para a lixeira apenas o que o usuario escolher.
+```
+
+README atualizado com:
+
+```text
+problema que resolve
+diferenciais
+ranking dos maiores consumidores
+seguranca e privacidade
+testes
+uso como servico
+```
+
+Ponto de produto:
+
+```text
+O software nao e apenas um apagador de e-mails.
+Ele funciona como diagnostico e limpeza controlada do Gmail.
+```
+
+Mensagem para continuar em outro computador:
+
+```text
+Quero continuar meu treinamento de Python/backend e produto. Leia o PROGRESSO_TREINO.md no repositorio MauricioApCastro/python. O ponto atual e: SQLite ja chegou ate DELETE por ID; depois mudamos o plano para refazer um sistema de assistencia tecnica em memoria na pasta estudo/, reforcando lista, dicionario, funcoes e menu. Proximo passo: completar formatar_ordem, listar_ordens e contar_ordens antes de ir para JSON. Tambem estamos tratando o gmail_cleaner como produto real de portfolio.
+```

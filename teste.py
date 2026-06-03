@@ -117,6 +117,23 @@ def editar_por_id(cursor):
     else:
         print("Equipamento atualizado com sucesso.")
 
+def remover_por_id(cursor):
+    try:
+        id_busca = int(input("Digite o ID para remover: "))
+    except ValueError:
+        print("ID invalido. Digite um numero.")
+        return
+
+    cursor.execute("""
+    DELETE FROM equipamentos
+    WHERE id = ?
+    """, (id_busca,))
+
+    if cursor.rowcount == 0:
+        print("Nenhum equipamento encontrado com esse ID.")
+    else:
+        print("Equipamento removido com sucesso.")
+
 def mostrar_menu():
 
     print("\n=== Aula SQLite - Equipamentos ===")
@@ -125,6 +142,7 @@ def mostrar_menu():
     print("3 - Buscar por marca")
     print("4 - Buscar por cliente")
     print("5 - Editar por ID")
+    print("6 - Remover por ID")
     print("0 - Sair")
 
 def main():
@@ -153,6 +171,10 @@ def main():
 
         elif opcao == "5":
             editar_por_id(cursor)
+            conexao.commit()
+        
+        elif opcao == "6":
+            remover_por_id(cursor)
             conexao.commit()
 
         elif opcao == "0":
